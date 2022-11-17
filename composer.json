@@ -1,0 +1,19 @@
+{
+    "name": "vendorname/projectname",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "AUTHOR",
+            "email": "AUTHOR_EMAIL@EXAMPLE.COM"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.5",
+        "ext-openssl": "*",
+        "ext-pdo": "*"
+    }
+}
