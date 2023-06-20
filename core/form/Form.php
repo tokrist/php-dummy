@@ -1,8 +1,8 @@
 <?php
 
-namespace thecodeholic\phpmvc\form;
+namespace app\core\form;
 
-use thecodeholic\phpmvc\Model;
+use app\core\Model;
 
 class Form {
     public static function begin($action, $method, $options = []): Form {

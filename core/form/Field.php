@@ -1,8 +1,8 @@
 <?php
 
-namespace thecodeholic\phpmvc\form;
+namespace app\core\form;
 
-use thecodeholic\phpmvc\Model;
+use app\core\Model;
 
 class Field extends BaseField {
     const TYPE_TEXT = 'text';

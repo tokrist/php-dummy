@@ -1,6 +1,6 @@
 <?php
 
-namespace thecodeholic\phpmvc\form;
+namespace app\core\form;
 
 class TextareaField extends BaseField {
     public function renderInput(): string {

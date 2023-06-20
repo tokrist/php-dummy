@@ -1,8 +1,8 @@
 <?php
 
-namespace thecodeholic\phpmvc;
+namespace app\core;
 
-use thecodeholic\phpmvc\middlewares\BaseMiddleware;
+use app\core\middlewares\BaseMiddleware;
 
 class Controller {
     public string $layout = 'main';

@@ -1,8 +1,8 @@
 <?php
 
-namespace thecodeholic\phpmvc;
+namespace app\core;
 
-use thecodeholic\phpmvc\exception\NotFoundException;
+use app\core\exception\NotFoundException;
 
 class Router {
     private Request $request;

@@ -5,17 +5,17 @@
  * Time: 11:33 AM
  */
 
-namespace thecodeholic\phpmvc\middlewares;
+namespace app\core\middlewares;
 
 
-use thecodeholic\phpmvc\Application;
-use thecodeholic\phpmvc\exception\ForbiddenException;
+use app\core\Application;
+use app\core\exception\ForbiddenException;
 
 /**
  * Class AuthMiddleware
  *
  * @author  Zura Sekhniashvili <zurasekhniashvili@gmail.com>
- * @package thecodeholic\phpmvc
+ * @package app\core
  */
 class AuthMiddleware extends BaseMiddleware
 {

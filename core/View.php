@@ -1,6 +1,6 @@
 <?php
 
-namespace thecodeholic\phpmvc;
+namespace app\core;
 
 class View {
     public string $title = '';

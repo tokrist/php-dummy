@@ -1,10 +1,10 @@
 <?php
 
-namespace thecodeholic\phpmvc\database;
+namespace app\core\database;
 
 use PDOStatement;
-use thecodeholic\phpmvc\Application;
-use thecodeholic\phpmvc\Model;
+use app\core\Application;
+use app\core\Model;
 
 abstract class DbModel extends Model {
     abstract public static function tableName(): string;

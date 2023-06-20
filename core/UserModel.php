@@ -1,8 +1,8 @@
 <?php
 
-namespace thecodeholic\phpmvc;
+namespace app\core;
 
-use thecodeholic\phpmvc\database\DbModel;
+use app\core\database\DbModel;
 
 abstract class UserModel extends DbModel {
     abstract public function getDisplayName(): string;

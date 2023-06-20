@@ -1,6 +1,6 @@
 <?php
 
-namespace thecodeholic\phpmvc;
+namespace app\core;
 
 class Session {
     protected const FLASH_KEY = 'flash_messages';

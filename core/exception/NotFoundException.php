@@ -1,6 +1,6 @@
 <?php
 
-namespace thecodeholic\phpmvc\exception;
+namespace app\core\exception;
 
 use Exception;
 

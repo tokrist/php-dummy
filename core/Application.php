@@ -1,9 +1,9 @@
 <?php
 
-namespace thecodeholic\phpmvc;
+namespace app\core;
 
 use Exception;
-use thecodeholic\phpmvc\database\Database;
+use app\core\database\Database;
 
 class Application {
     const EVENT_BEFORE_REQUEST = 'beforeRequest';

@@ -1,10 +1,10 @@
 <?php
 
-namespace thecodeholic\phpmvc\database;
+namespace app\core\database;
 
 use PDO;
 use PDOStatement;
-use thecodeholic\phpmvc\Application;
+use app\core\Application;
 
 class Database {
     public PDO $pdo;

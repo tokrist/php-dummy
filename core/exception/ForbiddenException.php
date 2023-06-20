@@ -1,9 +1,9 @@
 <?php
 
-namespace thecodeholic\phpmvc\exception;
+namespace app\core\exception;
 
 use Exception;
-use thecodeholic\phpmvc\Application;
+use app\core\Application;
 
 class ForbiddenException extends Exception {
     protected $message = 'You don\'t have permission to access this page';

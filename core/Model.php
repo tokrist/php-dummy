@@ -1,6 +1,6 @@
 <?php
 
-namespace thecodeholic\phpmvc;
+namespace app\core;
 
 class Model {
     const RULE_REQUIRED = 'required';
