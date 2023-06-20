@@ -9,11 +9,6 @@ require_once __DIR__ . './../vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 
-if(strlen($_ENV['DATA_HASH_KEY']) != 16) {
-    echo '<span style="font-size:30px;">ERROR! .ENV DATA_HASH_KEY NEEDS TO BE 16 CHARACTERS LONG!<br><br><strong>LOAD TERMINATED</strong></span>';
-    exit;
-}
-
 $config = [
     'hashKey' => $_ENV['DATA_HASH_KEY'],
     'userClass' => \app\models\User::class,

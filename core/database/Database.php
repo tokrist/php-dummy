@@ -1,21 +1,25 @@
 <?php
 
-namespace app\core\database;
+namespace thecodeholic\phpmvc\database;
+
+use PDO;
+use PDOStatement;
+use thecodeholic\phpmvc\Application;
 
 class Database {
+    public PDO $pdo;
 
-    public \PDO $pdo;
-
-    public function __construct(array $config) {
+    public function __construct($config = []) {
         $host = $config['host'] ?? '';
         $username = $config['username'] ?? '';
         $password = $config['password'] ?? '';
 
-        $this->pdo = new \PDO($host, $username, $password);
-        $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION); // Throws exception if it can't connect to the database
+        $this->pdo = new PDO($host, $username, $password);
+        $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    public function prepare($sql): bool|\PDOStatement {
+
+    public function prepare($sql): PDOStatement {
         return $this->pdo->prepare($sql);
     }
 }

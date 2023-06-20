@@ -1,12 +1,16 @@
 <?php
 
-namespace app\core\form;
+namespace thecodeholic\phpmvc\form;
 
-use app\core\Model;
+use thecodeholic\phpmvc\Model;
 
 class Form {
-    public static function begin($action, $method): Form {
-        echo '<form action="' . $action . '" method="' . $method . '">';
+    public static function begin($action, $method, $options = []): Form {
+        $attributes = [];
+        foreach ($options as $key => $value) {
+            $attributes[] = "$key=\"$value\"";
+        }
+        echo sprintf('<form action="%s" method="%s" %s>', $action, $method, implode(" ", $attributes));
         return new Form();
     }
 
@@ -14,7 +18,8 @@ class Form {
         echo '</form>';
     }
 
-    public function field(Model $model, $attribute): InputField {
-        return new InputField($model, $attribute);
+    public function field(Model $model, $attribute): Field {
+        return new Field($model, $attribute);
     }
+
 }

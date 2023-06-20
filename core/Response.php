@@ -1,13 +1,14 @@
 <?php
 
-namespace app\core;
+namespace thecodeholic\phpmvc;
+
 
 class Response {
-    public function setStatusCode(int $code): void {
+    public function statusCode(int $code): void {
         http_response_code($code);
     }
 
-    public function redirect(string $url): void {
+    public function redirect($url): void {
         header("Location: $url");
     }
 }

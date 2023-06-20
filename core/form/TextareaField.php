@@ -1,14 +1,13 @@
 <?php
 
-namespace app\core\form;
+namespace thecodeholic\phpmvc\form;
 
 class TextareaField extends BaseField {
-
     public function renderInput(): string {
-        return sprintf('<textarea name="%s" class="form-control%s">%s</textarea>',
-            $this->attribute,
-            $this->model->hasError($this->attribute) ? ' is-invalid' : '',
-            $this->model->{$this->attribute}
+        return sprintf('<textarea class="form-control%s" name="%s">%s</textarea>',
+                       $this->model->hasError($this->attribute) ? ' is-invalid' : '',
+                       $this->attribute,
+                       $this->model->{$this->attribute},
         );
     }
 }

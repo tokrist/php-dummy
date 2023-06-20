@@ -1,46 +1,56 @@
 <?php
 
-namespace app\core;
+namespace thecodeholic\phpmvc;
 
 class Request {
-    public function getPath() {
-        $path = $_SERVER['REQUEST_URI'] ?? '/';
-        $position = strpos($path, '?');
+    private array $routeParams = [];
 
-        if($position === false) {
-            return $path;
-        }
-
-        return $path = substr($path, 0, $position);
-    }
-
-    public function method() {
+    public function getMethod(): string {
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
 
-    public function isGet() {
-        return $this->method() === 'get';
+    public function getUrl(): mixed {
+        $path = $_SERVER['REQUEST_URI'];
+        $position = strpos($path, '?');
+        if ($position !== false) {
+            $path = substr($path, 0, $position);
+        }
+        return $path;
     }
 
-    public function isPost() {
-        return $this->method() === 'post';
+    public function isGet(): bool {
+        return $this->getMethod() === 'get';
     }
 
-    public function getBody() {
-        $body = [];
+    public function isPost(): bool {
+        return $this->getMethod() === 'post';
+    }
 
-        if($this->method() === 'get') {
+    public function getBody(): array {
+        $data = [];
+        if ($this->isGet()) {
             foreach ($_GET as $key => $value) {
-                $body[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $data[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
             }
         }
-
-        if($this->method() === 'post') {
+        if ($this->isPost()) {
             foreach ($_POST as $key => $value) {
-                $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $data[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
             }
         }
+        return $data;
+    }
 
-        return $body;
+    public function setRouteParams($params): static {
+        $this->routeParams = $params;
+        return $this;
+    }
+
+    public function getRouteParams(): array {
+        return $this->routeParams;
+    }
+
+    public function getRouteParam($param, $default = null): mixed {
+        return $this->routeParams[$param] ?? $default;
     }
 }
